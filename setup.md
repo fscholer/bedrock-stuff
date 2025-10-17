@@ -1,18 +1,20 @@
 # VSC-AWS Toolkit Setup (Optional)
 
-* In VSC, install AWS Toolkit from VSC Extensions
-
-* Set credentials
-    * https://rmit-research.awsapps.com/start/#/?tab=accounts
+* \[First time only: Set credentials\]
+    * In VSC, install AWS Toolkit from VSC Extensions
+    * Visit https://rmit-research.awsapps.com/start/#/?tab=accounts
     * expand *stem-research-iar* (or appropriate other) account details
     * select *Access keys*
     * note ```SSO Start URL``` and ```SSO Region``` 
-    * in VSC, select AWS Toolkit Explorer from left menu, enter SSO details
-    * authenticate in browser
 
-# Conda Environment Setup (Optional)
+* In VSC, select AWS Toolkit Explorer from left menu
+    * select Connected with IAM Identity Center (rmit-research)
+    * select connection with number that matches "stem-research-iar", i.e. 536697255212
+* authenticate in browser
 
-Create a new environment
+# Conda Environment 
+
+\[First time only: Create a new environment\]
 * ```conda create --name bedrock```
 
 Activate environment
@@ -20,18 +22,21 @@ Activate environment
 
 # AWS Environment Setup
 
-Set environment credentials
-1. ```aws configure```
-   * Enter details from: https://rmit-research.awsapps.com/start/#/?tab=accounts (variables at bottom)
-2. edit ~/.aws/credentials to add another line
-    ```aws_session_token = <token>```
-    * Note: the session token regularly expires so needs to be updated periodically
+\[First time only: Set environment credentials\]
+* ```aws configure```
+    * Enter details from: https://rmit-research.awsapps.com/start/#/?tab=accounts (variables at bottom)
+
+Edit ~/.aws/credentials
+* Visit https://rmit-research.awsapps.com/start/#/?tab=accounts
+* Expand stem-research-iar, click Access Keys
+* Copy content from "Option 2: Add a profile to your AWS credentials file"
+* Rename first line from "\[\<some account number\>]\" to "\[default\]"
+* Note: the session token regularly expires so needs to be updated periodically
 
 # Workshop setup
 * (see https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/prerequisites)
     ```
     cd environment/
-    # the following zip archive is already included in the git repo
     # curl 'https://static.us-east-1.prod.workshops.aws/public/5dd5dc48-363d-4c69-9007-9e5528c5c31f/assets/workshop.zip' --output workshop.zip
     # unzip a local copy of the zip archive
     unzip workshop.zip
