@@ -47,5 +47,3 @@ Edit ~/.aws/credentials
     ```
     python environment/workshop/completed/api/bedrock_api.py
     ```
-
-
